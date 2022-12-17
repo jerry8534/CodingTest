@@ -1,0 +1,18 @@
+class Solution {
+    public int[] solution(int denum1, int num1, int denum2, int num2) {
+        int[] answer = new int[2];
+        denum1 = denum1*num2;
+        denum2 = denum2*num1;
+        int num = num1*num2;
+        int denum = denum1+denum2;
+        int maximum = 1;
+        for(int i = 1 ; i <= denum ; i ++) {
+            if(denum%i == 0 && num%i == 0) {
+               maximum = i;
+            }
+        }
+        answer[0] = denum/maximum;
+        answer[1] = num/maximum;
+        return answer;
+    }
+}
