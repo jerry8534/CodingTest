@@ -1,0 +1,16 @@
+import java.util.*;
+import java.io.*;
+
+public class Main{
+    public static void main(String[] args) throws IOException{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        StringBuffer AB = new StringBuffer(br.readLine());
+        String abc = AB.reverse().toString();
+        String[] two = abc.split(" ");
+        int a = Integer.parseInt(two[0]);
+        int b = Integer.parseInt(two[1]);
+        if(a > b) System.out.print(a);
+        if(b > a) System.out.print(b);
+    }
+}

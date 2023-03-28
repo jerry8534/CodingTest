@@ -1,0 +1,28 @@
+import java.util.*;
+import java.io.*;
+
+public class Main{
+    public static void main(String[] args) throws IOException{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        String word = br.readLine();
+        int length = word.length();
+        char[] ab = new char[length];
+        for(int i = 0; i < length; i++){
+            ab[i] = word.charAt(i);
+        }
+        int sum = 0;
+        for(char value : ab){
+            int a = (int)value-64;
+            if(a<=3) sum += 3;
+            if(3<a&&a<=6) sum += 4;
+            if(6<a&&a<=9) sum += 5;
+            if(9<a&&a<=12) sum += 6;
+            if(12<a&&a<=15) sum += 7;
+            if(15<a&&a<=19) sum += 8;
+            if(19<a&&a<=22) sum += 9;
+            if(22<a&&a<=26) sum += 10;
+        }
+        System.out.println(sum);
+    }
+}
