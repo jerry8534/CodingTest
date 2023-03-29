@@ -1,0 +1,15 @@
+class Solution {
+    public int solution(int order) {
+        int answer = 0;
+
+        String s = String.valueOf(order);
+        String[] ss = s.split("");
+        for(int i = 0; i < ss.length; i++){
+            if(ss[i].equals("3") || ss[i].equals("6") || ss[i].equals("9")){
+                answer++;
+            }
+        }
+
+        return answer;
+    }
+}

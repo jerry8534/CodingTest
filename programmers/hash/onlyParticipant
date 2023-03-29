@@ -1,0 +1,50 @@
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
+class Solution {
+    public String solution(String[] participant, String[] completion) {
+        String answer = "";
+        
+        HashMap<String, Integer> hm = new HashMap<>();
+        for(String player : participant){
+            hm.put(player, hm.getOrDefault(player, 0) + 1);
+        }
+        for(String player : completion){
+            hm.put(player, hm.get(player) -1);
+        }
+
+        Iterator<Map.Entry<String, Integer>> iter = hm.entrySet().iterator();
+
+        while(iter.hasNext()){
+            Map.Entry<String, Integer> entry = iter.next();
+            if(entry.getValue() !=0){
+                answer = entry.getKey();
+                break;
+            }
+        }
+
+        return answer;
+    }
+}
+
+/*
+List<String> par = new ArrayList<String>(Arrays.asList(participant));
+        List<String> com = new ArrayList<String>(Arrays.asList(completion));
+       // ArrayList resultList = new ArrayList<String>();
+        for(int i = 0; i<completion.length; i++){
+            if(par.contains(com.get(i))){
+                par.remove(com.get(i));
+                //resultList.add(participant[i]);
+            }
+            if(i == participant.length - 1){
+                break;
+            }
+        }
+        StringBuilder sb = new StringBuilder();
+        for(Object item : par){
+            sb.append(item);
+            //sb.append(",");
+        }
+        answer = sb.toString();
+*/

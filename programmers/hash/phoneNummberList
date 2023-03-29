@@ -1,0 +1,51 @@
+import java.util.*;
+
+class Solution {
+    public boolean solution(String[] phone_book) {
+        boolean answer = true;
+
+        HashMap<String, Integer> hm = new HashMap<>();
+        for(String num : phone_book){
+            hm.put(num, num.length());
+        }
+
+        for(String s : phone_book){
+            for(int i = 1; i < s.length(); i++){
+                if(hm.containsKey(s.substring(0, i))){
+                    answer = false;
+                }
+            }
+        }
+
+        return answer;
+    }
+}
+
+/*
+import java.util.*;
+
+class Solution {
+    public boolean solution(String[] phone_book) {
+        boolean answer = true;
+
+        HashMap<String, Integer> hm = new HashMap<>();
+        for(String num : phone_book){
+            hm.put(num, num.length());
+        }
+
+        for(Map.Entry<String, Integer> entry : hm.entrySet()){
+            String num = entry.getKey();
+            int i = entry.getValue();
+            for(Map.Entry<String, Integer> entry2 : hm.entrySet()){
+                if((num != entry2.getKey()) && (num.length() < entry2.getKey().length())){
+                    if(num.equals(entry2.getKey().substring(0, i))){
+                        answer = false;
+                    }
+                }
+            }
+        }
+
+        return answer;
+    }
+}
+*/
