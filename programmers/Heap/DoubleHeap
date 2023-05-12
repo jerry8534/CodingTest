@@ -1,0 +1,49 @@
+import java.util.*;
+
+class Solution {
+    public int[] solution(String[] operations) {
+        int[] answer = {};
+        PriorityQueue<Integer> pqAsc = new PriorityQueue<>(new Comparator<Integer>(){
+            public int compare(Integer a, Integer b){
+                return a-b;
+            }
+        });
+        PriorityQueue<Integer> pqDesc = new PriorityQueue<>(new Comparator<Integer>(){
+            public int compare(Integer a, Integer b){
+                return b-a;
+            }
+        });
+
+        for(String oper : operations){
+            String[] temp = oper.split(" ");
+            String ope = temp[0];
+            int num = Integer.parseInt(temp[1]);
+            if(ope.equals("I")){
+                pqAsc.offer(num);
+                pqDesc.offer(num);
+            }
+            else{
+                if(!pqAsc.isEmpty()){
+                    if(num == 1){
+                        int max = pqDesc.poll();
+                        pqAsc.remove(max);
+                    }
+                    else if(num == -1){
+                        int min = pqAsc.poll();
+                        pqDesc.remove(min);
+                    }
+                }
+            }
+        }
+
+        if(pqAsc.isEmpty()){
+            return new int[]{0,0};
+        }
+        else if(pqAsc.size() == 1){
+            return new int[]{pqAsc.peek(), pqAsc.peek()};
+        }
+        else{
+            return new int []{pqDesc.peek(), pqAsc.peek()};
+        }
+    }
+}
