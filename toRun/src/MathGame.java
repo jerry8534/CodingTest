@@ -27,7 +27,7 @@ public class MathGame {
     // Generate all possible splits of the input string
     private static List<String> generateSplits(String S) {
         List<String> splits = new ArrayList<>();
-        Stream
+//        Stream
         int n = S.length();
         for (int i = 1; i < n; i += 2) {
             for (int j = 0; j < n - i; j += 2) {
