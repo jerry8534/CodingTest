@@ -6,7 +6,7 @@ class Solution {
         }
 
         Stack<Integer> stack2 = new Stack<>();
-        String temp = '';
+        String temp = "";
         while(!stack.isEmpty()){
             temp = stack.pop();
             if(temp.equals("+")){
